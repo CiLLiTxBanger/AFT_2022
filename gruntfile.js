@@ -18,9 +18,14 @@ module.exports = function(grunt) {
                 replacements: [{
                     from: /sonnig/g,
                     to: function (matchedWord) {
-                        return 'regnerisch';   //'regnerisch'
+                        return 'regnerisch';
                     }
-                }, {
+                }]
+            },
+            example2: {
+                src: ['index.html'],             // source files array
+                overwrite: true,
+                replacements: [{
                     from: /regnerisch/g,
                     to: function (matchedWord) {
                         return 'sonnig';
