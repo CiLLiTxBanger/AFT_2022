@@ -13,22 +13,32 @@ module.exports = function(grunt) {
         },
         replace: {
             example: {
-                src: ['index.html'],             // source files array (supports minimatch)
+                src: ['index.html'],             // source files array
                 overwrite: true,
                 replacements: [{
-                    pattern: 'sonnig',                   // string replacement
-                    replacement: 'regnerisch'
+                    from: /sonnig/g,
+                    to: function (matchedWord) {
+                        return 'regnerisch';   //'regnerisch'
+                    }
                 }, {
-                    from: 'regnerisch',
-                    to: 'sonnig'
+                    from: /regnerisch/g,
+                    to: function (matchedWord) {
+                        return 'sonnig';
+                    }
                 }]
+            }
+        },
+        shell: {
+            showIPconfig: {
+                command: 'ipconfig'
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('default', ['sass']);
+    grunt.registerTask('default', ['sass', 'replace', 'shell']);
 
 };
