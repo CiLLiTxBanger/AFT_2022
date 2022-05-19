@@ -45,6 +45,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-text-replace');
     grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('default', ['sass', 'replace', 'shell']);
+    grunt.registerTask('default', ['sass', 'replace:example', 'shell']);
 
 };
