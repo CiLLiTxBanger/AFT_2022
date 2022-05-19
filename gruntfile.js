@@ -8,6 +8,7 @@ module.exports = function(grunt) {
                 },
                 files: {                         // Dictionary of files
                     'public/main.css': 'scss/main.scss',       // 'destination': 'source'
+
                 }
             }
         },
